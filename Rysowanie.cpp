@@ -449,4 +449,284 @@ int main()
     return 0;
 }
 
+// v z podwójną podstawą:
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int w;
+    cin>>w;
+    for(int i=1; i<=w; i++)
+    {
+        for(int j=1; j<=2*w; j++)
+        {
+            if(i==j || i+j==2*w+1)
+            cout<<"*";
+            else
+            cout<<" ";
+        }
+        cout<<endl;
+    }
+    
+    return 0;
+}
+// Wynik dla 4:
+*      *
+ *    * 
+  *  *  
+   **   
+// Odwrócone v z podwójną podstawą:
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int w;
+    cin>>w;
+    for(int i=w; i>0; i--)
+    {
+        for(int j=1; j<=2*w; j++)
+        {
+            if(i==j || i+j==2*w+1)
+            cout<<"*";
+            else
+            cout<<" ";
+        }
+        cout<<endl;
+    }
+    
+    return 0;
+}
+
+// Wynik dla 6:
+     **     
+    *  *    
+   *    *   
+  *      *  
+ *        * 
+*          *
+
+// Ramka klepsydry (dla nieparzystych)
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int w;
+    cin>>w;
+    for(int i=1; i<=w; i++)
+    {
+        for(int j=1; j<=w; j++)
+        {
+            if(i==j || i==1 || i==w || i+j==w+1)
+            cout<<"*";
+            else
+            cout<<" ";
+        }
+        cout<<endl;
+    }
+    
+    return 0;
+}
+// Wynik dla 7:
+*******
+ *   * 
+  * *  
+   *   
+  * *  
+ *   * 
+*******
+// Pełna klepsydra:
+#include <iostream>
+using namespace std;
+
+int main() {
+    int w;
+    cin >> w;
+
+    for (int i = 1; i <= w; i++)
+    {
+        for (int j = 1; j <= w; j++) 
+        {
+
+            if (i <= (w + 1) / 2)
+            {
+                if (j >= i && j <= w - i + 1)
+                    cout << "*";
+                else
+                    cout << " ";
+            }
+            else
+            {
+                if (j >= w - i + 1 && j <= i)
+                    cout << "*";
+                else
+                    cout << " ";
+            }
+
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+// Wynik dla 7:
+*******
+ ***** 
+  ***  
+   *   
+  ***  
+ ***** 
+*******
+
+// Strzałka bez wypełnienia:
+#include <iostream>
+using namespace std;
+
+int main() {
+    int w;
+    cin >> w;
+
+    for (int i =1; i<=w; i++)
+    {
+        for (int j=1; j<=w/2+1; j++) 
+        {
+           if(j==1 || i==j || i+j==w+1)
+             cout<<"* ";
+           else
+             cout<<"  ";
+
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+// Wynik dla 5:
+*     
+* *   
+*   * 
+* *   
+*  
+
+// Strzałka z wypełnieniem:
+#include <iostream>
+using namespace std;
+
+int main() {
+    int w;
+    cin >> w;
+
+    for (int i =1; i<=w; i++)
+    {
+        for (int j=1; j<=w/2+1; j++) 
+        {
+           if(j>=1 && i+j<=w+1 && j<=i)
+             cout<<"* ";
+           else
+             cout<<"  ";
+
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+// Wynik dla 7:
+*       
+* *     
+* * *   
+* * * * 
+* * *   
+* *     
+*  
+// Ramka rombu:
+#include <iostream>
+using namespace std;
+
+int main() {
+    int w;
+    cin >> w;
+
+    for (int i =1; i<=w; i++)
+    {
+        for (int j=1; j<=w; j++) 
+        {
+           if(i+j==w/2+2 || i+j==w+w/2+1 || i-j==w/2 || j-i==w/2)
+             cout<<"* ";
+           else
+             cout<<"  ";
+
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+// Wynik dla 7:
+      *       
+    *   *     
+  *       *   
+*           * 
+  *       *   
+    *   *     
+      *     
+// Romb z wypełnieniem:
+#include <iostream>
+using namespace std;
+
+int main() {
+    int w;
+    cin >> w;
+
+    for (int i =1; i<=w; i++)
+    {
+        for (int j=1; j<=w; j++) 
+        {
+           if(i<=w/2+1)
+           {
+           if(i+j>w/2+1 && j-i<w/2+1)
+             cout<<"* ";
+           else
+             cout<<"  ";
+           }
+           else
+           {
+             if(i+j<=w/2+1+w && i-j<w/2+1)
+                cout<<"* ";
+             else
+                 cout<<"  ";
+           }
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+// Wynik dla 7:
+      *       
+    * * *     
+  * * * * *   
+* * * * * * * 
+  * * * * *   
+    * * *     
+      *       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

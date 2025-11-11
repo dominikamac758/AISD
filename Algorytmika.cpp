@@ -893,7 +893,33 @@ int main()
     return 0;
 }
 
+int znajdz_wyraz(char * tekst, int n_tekst, char * wyraz, int n_wyraz) {
+    
+    
+    
+    return 0;
+}
+Napisz funkcję znajdz_wyraz, która znajdzie tekst podany jako ciąg znaków wyraz i zwróci jego indeks w ciągu znaków w tablicy tekst. Zmienna n_tekst i n_wyraz oznaczają długość tekstów.
 
+Funkcja zwraca -1 w przypadku braku wyrazu w tekście
+int znajdz_wyraz(char * tekst, int n_tekst, char * wyraz, int n_wyraz) {
+    
+    if(n_wyraz > n_tekst) return -1;
+    
+    for(int i = 0; i <= n_tekst - n_wyraz; i++) {
+        bool znaleziono = true;
+
+        for(int j = 0; j < n_wyraz; j++) {
+            if(tekst[i+j] != wyraz[j]) {
+                znaleziono = false;
+                break;
+            }
+        }
+
+        if(znaleziono) return i;
+    }
+
+    return -1;
 
 
 

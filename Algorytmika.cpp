@@ -446,28 +446,421 @@ int main() {
     return 0;
 }
 
+// znajdowanie wszsytkich dzielników liczby:
+#include<iostream>
 
-Znajdowanie wszystkich dzielników liczby
+using namespace std;
 
-Liczby Armstronga – suma cyfr do potęgi liczby cyfr = liczba
+int main()
+{
+  int a;
+  cin>>a;
+  for(int i=1; i<=a; i++)
+  {
+      if(a%i==0)
+       cout<<i<<" ";
+  }
+  
+  return 0;  
+}
 
-Liczby doskonałe – suma dzielników = liczba
+// znajdowanie wszystkich dzielników liczby z tablicą dynamiczną:
+#include <iostream>
+using namespace std;
 
-Ciąg arytmetyczny
+int main()
+{
+    int a;
+    cout << "Podaj liczbe: ";
+    cin >> a;
 
-Ciąg geometryczny
+    int* dzielniki = new int[a];
+    int licznik = 0;
 
-Sumowanie liczb parzystych / nieparzystych w zakresie
+    for (int i = 1; i <= a; i++)
+    {
+        if (a % i == 0)
+        {
+            dzielniki[licznik] = i;
+            licznik++;
+        }
+    }
+    
+    for (int i = 0; i < licznik; i++)
+        cout << dzielniki[i] << " ";
+    cout << endl;
 
-Suma kwadratów / sześcianów liczb
+    delete[] dzielniki;
 
-Odwracanie stringa
+    return 0;
+}
 
-Liczenie samogłosek / spółgłosek
+// ciąg arytmetyczny - liczenie sumy:
 
-Zliczanie długości stringa
+S=( a1 + an ) /2 * n;
 
-Znajdowanie konkretnego znaku w stringu
+// ciąg geometryczny - liczenie sumy:
+
+S= a1 *  (1-q^n) / (1-q)
+
+// sumowanie liczb parzystych i nieparzystych:
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a;
+    cout << "Podaj liczbe: ";
+    cin >> a;
+    int s_p=0, s_np=0;
+    for(int i=1; i<=a; i++)
+    {
+        if(i%2==0)
+          s_p+=i;
+          
+        else
+          s_np+=i;
+        
+    }
+    
+    cout<<"Suma parzystych: "<<s_p<<endl;
+    cout<<"Suma nieparzystych: "<<s_np;
+    
+
+    return 0;
+}
+
+// liczby parzyste/nieparzyste:
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a;
+    cout << "N: ";
+    cin >> a;
+    int *tab= new int[a];
+    for(int i=0; i<a; i++)
+    {
+        cin>>tab[i];
+    }
+    
+    int s_p=0, s_np=0;
+    for(int i=0; i<a; i++)
+    {
+        if(tab[i]%2==0)
+          s_p+=tab[i];
+          
+        else
+          s_np+=tab[i];
+        
+    }
+    
+    cout<<"Suma parzystych: "<<s_p<<endl;
+    cout<<"Suma nieparzystych: "<<s_np;
+    
+    delete [] tab;
+    return 0;
+}
+
+// liczby parzyste/nieparzyste - podział:
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a;
+    cout << "N: ";
+    cin >> a;
+    int * tab= new int[a];
+    int *parzyste= new int[a];
+    int *nieparzyste= new int[a];
+    for(int i=0; i<a; i++)
+    {
+        cin>>tab[i];
+    }
+    int licznik_p=0, licznik_np=0;
+    for(int i=0; i<a; i++)
+    {
+        if(tab[i]%2==0)
+        {
+          parzyste[licznik_p]=tab[i];
+        
+          licznik_p++;  
+        }  
+        else
+        {
+          nieparzyste[licznik_np]=tab[i];
+        
+          licznik_np++;  
+        }
+        
+    }
+    
+    cout<<"Liczby parzyste: ";
+    for(int i=0; i<licznik_p; i++)
+    {
+        cout<<parzyste[i]<<" ";
+    }
+    
+    cout<<endl;
+    
+    cout<<"Liczby nieparzyste: ";
+    for(int i=0; i<licznik_np; i++)
+    {
+        cout<<nieparzyste[i]<<" ";
+    }
+    
+    delete [] parzyste;
+    delete [] nieparzyste;
+    delete [] tab;
+    return 0;
+}
+
+// suma kwadratów liczb od 1 do N:
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    cout << "Podaj N: ";
+    cin >> n;
+
+    long long suma = 0;
+
+    for (int i = 1; i <= n; i++)
+    {
+            suma += i * i; 
+    }
+
+    cout << "Suma = " << suma << endl;
+
+    return 0;
+}
+
+// liczenie długości stringa:
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string napis;
+    cout << "Podaj napis: ";
+    getline(cin, napis);  // wczytuje całą linie ze spacjami!
+
+    cout << "Dlugosc napisu: " << napis.length() << endl;
+
+    return 0;
+}
+
+// odwracanie stringa:
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string tekst;
+    cout << "Podaj napis: ";
+    getline(cin, tekst);
+
+    cout << "Odwrocony napis: ";
+    for (int i = tekst.length() - 1; i >= 0; i--)
+    {
+        cout << tekst[i];
+    }
+
+    cout << endl;
+    return 0;
+}
+
+// konwersja na małe litery:
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+    string tekst;
+    int wybor;
+    cout<<"Tekst: ";
+    getline(cin, tekst);
+    
+        for(char &nowy_tekst : tekst)
+        {
+          if(nowy_tekst>='A' && nowy_tekst<='Z')
+          {
+            nowy_tekst=nowy_tekst+('a'-'A');
+          }
+        }
+        cout<<tekst;
+        
+        return 0;
+}
+
+// konwersja na duże litery:
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+    string tekst;
+    int wybor;
+    cout<<"Tekst: ";
+    getline(cin, tekst);
+    
+        for(char &nowy_tekst : tekst)
+        {
+          if(nowy_tekst>='a' && nowy_tekst<='z')
+          {
+            nowy_tekst=nowy_tekst-('a'-'A');
+          }
+        }
+        cout<<tekst;
+        
+        return 0;
+}
+
+// Liczenie samogłosek:
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+    string tekst;
+    int suma=0;
+    cout<<"Tekst: ";
+    getline(cin, tekst);
+    
+        for(char &znak : tekst)
+        {
+          if(znak == 'a' || znak == 'e' || znak == 'i' || znak == 'o' || znak == 'u' ||
+              znak == 'y' || znak == 'A' || znak == 'E' || znak == 'I' || znak == 'O' ||
+               znak == 'U' || znak == 'Y')
+          {
+            suma+=1;
+          }
+          else
+           suma+=0;
+        }
+        cout<<suma;
+        
+        return 0;
+}
+
+// wypisywanie samogłosek:
+// tablica zwykła:
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string tekst;
+    cout << "Podaj tekst: ";
+    getline(cin, tekst);
+
+    char samogloski[] = {'a','e','i','o','u','y',
+                         'A','E','I','O','U','Y'};
+
+    char wynik[100]; 
+    int licznik = 0;
+
+    for (char znak : tekst)
+    {
+        for (char s : samogloski)
+        {
+            if (znak == s)
+            {
+                wynik[licznik++] = znak; 
+                break;
+            }
+        }
+    }
+
+    wynik[licznik] = '\0';
+
+    cout << "Znalezione samogloski: " << wynik << endl;
+
+    return 0;
+}
+
+// tablica dynamiczna:
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string tekst;
+    cout << "Podaj tekst: ";
+    getline(cin, tekst);
+    int a=tekst.length();
+    char samogloski[] = {'a','e','i','o','u','y',
+                         'A','E','I','O','U','Y'};
+
+    char *tab= new char[a]; 
+    int licznik = 0;
+
+    for (char znak : tekst)
+    {
+        for (char s : samogloski)
+        {
+            if (znak == s)
+            {
+                tab[licznik] = znak; 
+                licznik++;
+                break;
+            }
+        }
+    }
+    cout << "Znalezione samogloski: ";
+    
+    for(int i=0; i<licznik; i++)
+    {
+        cout<<tab[i]<<" ";
+    }
+    
+    delete [] tab;
+    return 0;
+}
+
+// znajdowanie konkretnego znaku w stringu:
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string tekst;
+    cout << "Podaj tekst: ";
+    getline(cin, tekst);
+    int a=tekst.length();
+    char szukane;
+    cout<<"Szukany znak: ";
+    cin>>szukane;
+
+    int licznik = 0;
+
+    for (char znak : tekst)
+    {
+            if (znak == szukane)
+            {
+                licznik++;
+            }
+    }
+    cout << "Znaleziony znak \'"<<szukane<<"\' znajduje się w podanym tekście "<<licznik<<" razy";
+    
+    return 0;
+}
+
 
 
 

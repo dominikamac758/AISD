@@ -861,6 +861,44 @@ int main()
     return 0;
 }
 
+// zmiana danego znaku w stringu na inny:
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+    string tekst;
+    cout<<"Podaj tekst: ";
+    getline(cin, tekst);
+    
+    char znak;
+    cout<<"Jaki znak chcesz zmienić: ";
+    cin>>znak;
+    
+    char zmieniony;
+    cout<<"Na jaki chcesz go zmienić: ";
+    cin>>zmieniony;
+    
+    for(char &t : tekst)
+    {
+       if(t==znak)
+       {
+           t=zmieniony;
+       }
+       else
+        continue;
+    }
+    
+    cout<<"Zmieniony tekst: "<<endl<<tekst<<endl;
+    return 0;
+}
+
+
+
+
+
 
 
 

@@ -150,7 +150,7 @@ int main()
     
     cout<<"N: ";cin>>n;
     
-    if(n==1 | n==0)
+    if(n==1 || n==0)
     {
       cout<<"Liczba nie jest liczbą ani pierwszą ani złożoną"<<endl;
     }
@@ -193,7 +193,7 @@ int main()
         if(tab[i]!=0)
         {
     
-        for(int j=2*i; j<=N; j+=i)
+          for(int j=2*i; j<=N; j+=i)
           {
             tab[j]=0;
           }
@@ -212,7 +212,7 @@ int main()
     return 0;
 }
 
-// NWD (największy wspólny dzielnik:
+// NWD (największy wspólny dzielnik):
 #include<iostream>
 using namespace std;
 
@@ -685,7 +685,6 @@ using namespace std;
 int main()
 {
     string tekst;
-    int wybor;
     cout<<"Tekst: ";
     getline(cin, tekst);
     
@@ -710,7 +709,6 @@ using namespace std;
 int main()
 {
     string tekst;
-    int wybor;
     cout<<"Tekst: ";
     getline(cin, tekst);
     

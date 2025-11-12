@@ -203,5 +203,27 @@ int main()
     return 0;
 }
 // Liczenie litery w podanym ciągu
+#include <iostream>
+using namespace std;
 
+int policz_litery(char *tekst, int n, char litera) {
+    int licznik = 0;
+    for (int i = 0; i < n; i++) {
+        if (tekst[i] == litera) {
+            licznik++;
+        }
+    }
+    return licznik;
+}
 
+int main() {
+    char tekst[] = "Hello World!";
+    int n = sizeof(tekst) - 1; // długość tekstu bez znaku '\0'
+    char litera = 'l';
+
+    int ile = policz_litery(tekst, n, litera);
+    cout << "Litera '" << litera << "' wystepuje " << ile << " razy." << endl;
+
+    return 0;
+ 
+// Funkcja suma cyfr parzysta:

@@ -284,4 +284,49 @@ int main()
     return 0;
 }
 // Tablica rejestracyjna:
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+char* tablica_rejestracyjna() {
+    srand(time(NULL)); // inicjalizacja generatora losowego
+
+    const char litery[] = {'A','C','E','F','G','H','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y'};
+    
+    const int liczba_liter = sizeof(litery)/sizeof(litery[0]);
+
+    char* tab = new char[8]; // "KR" + 5 znaków + '\0'
+    tab[0] = 'K';
+    tab[1] = 'R';
+
+    // Generowanie 5 znaków
+    for (int i = 2; i < 7; i++) {
+        if (rand() % 2 == 0)
+            tab[i] = '0' + rand() % 10;         // cyfra
+        else
+            tab[i] = litery[rand() % liczba_liter]; // litera
+    }
+
+    // Sprawdzenie i poprawienie, jeśli brak litery lub cyfry
+    bool jest_cyfra = false, jest_litera = false;
+    for (int i = 2; i < 7; i++)
+    {
+        if (tab[i] >= '0' && tab[i] <= '9') jest_cyfra = true;
+        else jest_litera = true;
+    }
+    if (!jest_cyfra) tab[2] = '0' + rand() % 10;           // wymuszenie cyfry
+    if (!jest_litera) tab[3] = litery[rand() % liczba_liter]; // wymuszenie litery
+
+    tab[7] = '\0'; // zakończenie łańcucha
+    return tab;
+}
+
+int main() {
+    char* rejestracja = tablica_rejestracyjna();
+    cout << "Tablica rejestracyjna: " << rejestracja << endl;
+    delete[] rejestracja;
+    return 0;
+}
+
 

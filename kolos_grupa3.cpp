@@ -68,6 +68,77 @@ int main()
 }
 
 // Funkcja czy pierwsza:
+#include<iostream>
+
+using namespace std;
+
+bool czy_pierwsza(int n)
+{
+  
+  if(n<2) return false;
+ 
+      for(int i=2; i*i<=n; i++)
+      {
+          if(n%i==0)
+          return false;
+      }
+  return true;
+}
+
+
+int main()
+{
+    int n;
+    cin>>n;
+    if(czy_pierwsza(n))
+     cout<<"Jest liczbą pierwszą"<<endl;
+    else
+     cout<<"Nie jest liczbą pierwszą"<<endl;
+    return 0;
+}
+
+
+// Rysowanie ramki:
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+    int N, M;
+    cout<<"Podaj wysokość: "; cin>>N;
+    if(N<3)
+    {
+        cout<<"Wysokość musi być większa lub równa 3"<<endl;
+    }
+    else
+    {
+        cout<<"Podaj szerokość: "; cin>>M;
+        if(M<3)
+        {
+            cout<<"Szerokość musi być większa lub równa 3"<<endl;
+        }
+        else
+        {
+            for(int i=1; i<=N; i++)
+            {
+                for(int j=1; j<=M; j++)
+                {
+                    if(i==1 || i==N || j==1 || j==M)
+                    {
+                        cout<<"*";
+                    }
+                    else
+                        cout<<" ";
+                }
+              cout<<endl;
+            }
+        }
+        
+    }
+    
+}
+// Funkcja do wypisywania kolumnami od końca tablicy dynamicznej z miejscami co 3:
 
 
 

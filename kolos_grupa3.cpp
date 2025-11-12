@@ -138,7 +138,70 @@ int main()
     }
     
 }
-// Funkcja do wypisywania kolumnami od końca tablicy dynamicznej z miejscami co 3:
+// Funkcja do wypisywania kolumnami od końca tablicy dynamicznej z miejscami co 3
+//i zliczanie sumy na przekątnych:
+#include<iostream>
 
+using namespace std;
+
+int wypelnij(int **tab, int n)
+{
+    int liczba=1;
+    int suma=0;
+    for(int j=n-1; j>=0; j--)
+    {
+        for(int i=0; i<n; i++)
+        {
+            tab[i][j]=liczba++;
+        }
+    }
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout.width(3);
+            cout << tab[i][j];
+        }
+        cout << endl;
+    }
+    
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            if(i==j || i+j==n-1)
+            {
+                suma+=tab[i][j];
+            }
+            else
+                suma+=0;
+        }
+    }
+    
+    
+   return suma;
+}
+
+
+int main()
+{
+    int n;
+    cout<<"Podaj rozmiar: "; cin>>n;
+    
+    int **tab=new int *[n];
+    
+    for(int i=0; i<n; i++)
+     tab[i]=new int[n];
+     
+    int wynik=wypelnij(tab, n);
+    cout<<"Suma: "<<wynik<<endl;
+     
+    for (int i = 0; i < n; i++)
+        delete[] tab[i];
+    delete[] tab;
+
+     
+    return 0;
+}
+// Liczenie litery w podanym ciągu
 
 

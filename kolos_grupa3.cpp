@@ -227,3 +227,61 @@ int main() {
     return 0;
  
 // Funkcja suma cyfr parzysta:
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+void suma_cyfr_parzysta(int *tab, int n, int a, int b)
+{
+    srand(time(NULL)); 
+    int maxPowtorzen = n / 5; // maks. 20% tych samych liczb
+
+    for (int i = 0; i < n; i++) {
+        int liczba;
+
+        do {
+            liczba = a + rand() % (b - a);
+
+            // liczymy sumę cyfr tej liczby
+            int suma = 0, temp = liczba;
+            while (temp > 0) {
+                suma += temp % 10;
+                temp /= 10;
+            }
+
+            if (suma % 2 != 0) continue;
+
+            int count = 0;
+            for (int j = 0; j < i; j++)
+                if (tab[j] == liczba) count++;
+
+            if (count >= maxPowtorzen) continue;
+
+            break; // liczba spełnia warunki, wychodzimy z pętli
+
+        } while (true);
+
+        tab[i] = liczba;
+    }
+}
+
+int main() 
+{
+    const int n = 5;
+    int tab[n];
+
+    int a = 10, b = 20;
+
+    suma_cyfr_parzysta(tab, n, a, b);
+
+    cout << "Tablica liczb o parzystej sumie cyfr:\n";
+    for (int i = 0; i < n; i++) {
+        cout << tab[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+// Tablica rejestracyjna:
+

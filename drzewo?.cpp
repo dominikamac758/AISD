@@ -1,18 +1,3 @@
-#include<iostream>
-#include<iomanip>
-#include<string>
-
-using namespace std;
-
-struct Node{
-    
-    char litera;
-    Node*brat=nullptr;
-    Node*dziecko=nullptr;
-};
-
-Node*root=nullptr;
-
 void dodaj(string slowo){
     
     int index=0;
@@ -48,11 +33,5 @@ void dodaj(string slowo){
         current=current->dziecko;
     }
     
-    
-}
+} 
 
-int main(){
-    
-    
-    return 0;
-}
